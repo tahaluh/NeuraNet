@@ -1,0 +1,72 @@
+{
+  "home": {
+    "welcomeMessage": "Bem vindo ao NeuraNet!",
+    "about": "Sobre nós",
+    "contact": "Contato"
+  },
+  "decisionBoundary": {
+    "title": "Decision Boundary (Fronteira de decisão)",
+    "content": {
+      "page1": [
+        "O \"Decision Boundary\" (Fronteira de Decisão) é um conceito crucial em redes neurais. Ele representa uma linha ou limite que separa diferentes grupos de dados em um gráfico.",
+        "Por exemplo, no gráfico com pontos azuis e vermelhos, o \"Decision Boundary\" é a linha branca que divide esses pontos em grupos distintos. ",
+        "Essa fronteira é essencial para que o modelo de rede neural possa fazer decisões precisas e classificar corretamente os pontos de dados em suas respectivas categorias."
+      ]
+    }
+  },
+  "weights": {
+    "title": "Weights (Pesos)",
+    "content": {
+      "page1": [
+        "Os pesos de ligação entre um input e um output em uma rede neural são cruciais, pois controlam a importância das conexões na propagação dos dados e cálculo da saída. ",
+        "Durante o treinamento, esses pesos são ajustados para que a rede possa aprender a realizar tarefas específicas com maior precisão e eficácia. Eles determinam o quão relevante é a informação passada por um determinado neurônio para a classificação final. ",
+        "No gráfico ao lado, por exemplo, o valor recebido pelo neurônio \"output1\" determina a probabilidade de um ponto ser classificado como azul, enquanto o valor recebido pelo \"output2\" determina a probabilidade de ser vermelho."
+      ],
+      "page2": [
+        "O ajuste dos pesos permite definir de forma mais clara os limites da fronteira de decisão. Os valores de cada peso afetam diretamente a posição e a forma dessa fronteira, influenciando a capacidade da rede neural em separar diferentes classes de dados de maneira mais precisa e discriminativa.",
+        "Ajuste os pesos para que os pontos sejam classificados corretamente."
+      ]
+    }
+  },
+  "bias": {
+    "title": "Bias (Viés)",
+    "content": {
+      "page1": [
+        "O \"bias\" em uma rede neural é um valor adicional em um neurônio, além dos pesos de ligação. Ele permite que o neurônio ajuste seu ponto de partida antes de aplicar a função de ativação, controlando o nível de ativação do neurônio.",
+        "A principal função do \"bias\" é permitir que a rede neural se adapte melhor aos dados de treinamento, especialmente em cenários não lineares. Por exemplo, quando os dados não podem ser separados por uma linha reta, a fronteira de decisão necessária também será não linear. O \"bias\" possibilita esse ajuste, deslocando a fronteira de decisão verticalmente, para que a rede possa classificar os dados corretamente."
+      ],
+      "page2": [
+        "Com a adição do \"bias\" à fórmula de cálculo do output, a rede neural ganha flexibilidade e capacidade de ajustar-se aos dados. Isso possibilita capturar relações complexas nos dados e melhorar a precisão da classificação. O \"bias\" permite criar fronteiras de decisão mais precisas e discriminativas, tornando a rede mais adaptável ao processo de aprendizado.",
+        "Ajuste os valores dos pesos e do bias para que os pontos sejam classificados corretamente."
+      ]
+    }
+  },
+  "hiddenLayers": {
+    "ttile": "Hidden Layers (Camadas ocultas)",
+    "content": {
+      "page1": [
+        "As \"hidden layers\" são componentes centrais das redes neurais, operando em um espaço intermediário entre as camadas de entrada e saída. Sua função é extrair e aprender características complexas dos dados, permitindo que a rede aprenda representações hierárquicas dos mesmos. ",
+        "Quanto mais \"hidden layers\", maior a capacidade da rede de aprender e representar características complexas, embora isso possa trazer desafios de treinamento."
+      ],
+      "page2": [
+        "As \"hidden layers\" possibilitam a classificação de relações não lineares nos dados. Entretanto, aumentar o número de \"hidden layers\" pode tornar o ajuste dos pesos mais desafiador. Encontrar o equilíbrio adequado entre a quantidade de camadas e o tamanho da rede é essencial para obter resultados precisos em tarefas complexas de aprendizado de máquina.",
+        "No gráfico ao lado, é possível notar um número elevado de pesos a ser configurado. O processo de ajuste de tantos pesos pode ser trabalhoso e demandar mais tempo de treinamento. Por essa razão, é importante considerar cuidadosamente a complexidade do problema ao projetar a arquitetura da rede neural.",
+        "Para além disso, apesar do aumento do número de conexões e neurônios da rede, a relação de classificação ainda continua linear, esse problema pode ser resolvido com \"Activation Functions\", funções não lineares aplicadas aos neurônios nas \"hidden layers\"."
+      ]
+    }
+  },
+  "activationFunction": {
+    "tittle": "Activation Functions (Funções de ativação)",
+    "content": {
+      "page1": [
+        "\"Activation Functions\" são funções matemáticas aplicadas aos neurônios das camadas ocultas de uma rede neural. Elas introduzem não linearidade no modelo, permitindo que a rede aprenda e represente relações complexas e não lineares nos dados.",
+        "Essas funções são cruciais para desbloquear o poder de aprendizado não linear das redes neurais, possibilitando a resolução de problemas mais complexos e a obtenção de classificações mais precisas em tarefas de aprendizado de máquina.",
+        "Ao lado, estão algumas das funções de ativação mais comuns para os neurônios em redes neurais. Cada função tem características específicas que afetam o desempenho da rede. A escolha da função de ativação é essencial para o sucesso da rede em várias aplicações de aprendizado de máquina, como visão computacional e processamento de linguagem natural."
+      ],
+      "page2": [
+        "Para a nossa demonstração, utilizaremos a função sigmoid. É importante observar que, ao ajustar os pesos, é possível notar a formação de curvas no decision boundary, gerando uma classificação não linear.",
+        "Graças à função sigmoid escolhida, esse processo se torna mais suave, permitindo que a rede aprenda e represente relações complexas nos dados de forma mais eficaz."
+      ]
+    }
+  }
+}
