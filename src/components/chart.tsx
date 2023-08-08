@@ -3,7 +3,27 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const MyChart: React.FC = () => {
+interface propsInterface {
+  width: number;
+  height: number;
+  dotSize?: number;
+  lineSize?: number;
+  centerAxis?: boolean;
+
+  yAxisGrids?: number;
+  xAxisGrids?: number;
+}
+
+const MyChart: React.FC<propsInterface> = ({
+  width,
+  height,
+  dotSize = 6,
+  lineSize = 1,
+  centerAxis = false,
+
+  yAxisGrids = 10,
+  xAxisGrids = 10,
+}) => {
   const chartRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -33,14 +53,27 @@ const MyChart: React.FC = () => {
       const yMin = 0;
       const yMax = 1;
 
-      const xScale = d3.scaleLinear().domain([xMin, xMax]).range([0, 300]);
-      const yScale = d3.scaleLinear().domain([yMin, yMax]).range([300, 0]);
+      const xScale = d3
+        .scaleLinear()
+        .domain([xMin, xMax])
+        .range([
+          width / (xAxisGrids * 2),
+          (width / yAxisGrids) * (yAxisGrids - 1),
+        ]);
+      const yScale = d3
+        .scaleLinear()
+        .domain([yMin, yMax])
+        .range([
+          (height / xAxisGrids) * (xAxisGrids - 1),
+          height / (yAxisGrids * 2),
+        ]);
+      console.log(xScale);
 
       // Criação do grid vertical
       const xAxis = d3
         .axisBottom(xScale)
-        .ticks(12)
-        .tickSize(300)
+        .ticks(xAxisGrids)
+        .tickSize(height * 0.95)
         .tickFormat(() => "");
       const xAxisGroup = svg
         .append("g")
@@ -52,8 +85,8 @@ const MyChart: React.FC = () => {
       // Criação do grid horizontal
       const yAxis = d3
         .axisLeft(yScale)
-        .ticks(10)
-        .tickSize(-300)
+        .ticks(yAxisGrids)
+        .tickSize(-width * 0.95)
         .tickFormat(() => "");
       const yAxisGroup = svg
         .append("g")
@@ -82,7 +115,7 @@ const MyChart: React.FC = () => {
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", "#FFFFFF")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", lineSize)
         .attr("d", line);
 
       // Criação dos pontos vermelhos
@@ -94,7 +127,7 @@ const MyChart: React.FC = () => {
         .attr("class", "red")
         .attr("cx", (d) => xScale(d.x))
         .attr("cy", (d) => yScale(d.y))
-        .attr("r", 4)
+        .attr("r", dotSize)
         .attr("fill", "#FE4E5A");
 
       // Criação dos pontos azuis
@@ -106,14 +139,14 @@ const MyChart: React.FC = () => {
         .attr("class", "blue")
         .attr("cx", (d) => xScale(d.x))
         .attr("cy", (d) => yScale(d.y))
-        .attr("r", 4)
+        .attr("r", dotSize)
         .attr("fill", "#5CAFFD");
     };
 
     drawChart();
   }, []);
 
-  return <svg ref={chartRef} width={300} height={300} />;
+  return <svg ref={chartRef} width={width} height={height} />;
 };
 
 export default MyChart;
