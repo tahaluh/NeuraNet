@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import generateIntermediatePoints from "../utils/generateIntermediatePoints";
+import { palette } from "../utils/palette";
+import { Coordinates } from "../types/types";
 
 interface propsInterface {
   width: number;
@@ -80,7 +82,9 @@ const NeuraChart: React.FC<propsInterface> = ({
         .attr("class", "grid")
         .call(xAxis)
         .call((g) => g.select(".domain").remove())
-        .call((g) => g.selectAll(".tick line").attr("stroke", "#342F34"))!;
+        .call((g) =>
+          g.selectAll(".tick line").attr("stroke", palette.gray.dark)
+        )!;
 
       // Criação do grid horizontal
 
@@ -95,19 +99,25 @@ const NeuraChart: React.FC<propsInterface> = ({
         .attr("class", "grid")
         .call(yAxis)
         .call((g) => g.select(".domain").remove())
-        .call((g) => g.selectAll(".tick line").attr("stroke", "#342F34"));
+        .call((g) =>
+          g.selectAll(".tick line").attr("stroke", palette.gray.dark)
+        );
 
       // Seleciona a linha do meio no eixo x
       const xAxisLine = xAxisGroup.selectAll("line").nodes()[
         centerAxis ? (xAxisGroup.selectAll("line").nodes().length - 1) / 2 : 0
       ]!;
-      d3.select(xAxisLine).attr("stroke", "#4D4B4D").attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
+      d3.select(xAxisLine)
+        .attr("stroke", palette.gray.medium)
+        .attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
 
       // Seleciona a linha do meio no eixo y
       const yAxisLine = yAxisGroup.selectAll("line").nodes()[
         centerAxis ? (yAxisGroup.selectAll("line").nodes().length - 1) / 2 : 0
       ];
-      d3.select(yAxisLine).attr("stroke", "#4D4B4D").attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
+      d3.select(yAxisLine)
+        .attr("stroke", palette.gray.medium)
+        .attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
 
       // Criação da linha
       const line = d3
@@ -120,7 +130,7 @@ const NeuraChart: React.FC<propsInterface> = ({
         .append("path")
         .datum(lineStrokeData)
         .attr("fill", "none")
-        .attr("stroke", "#FFFFFF")
+        .attr("stroke", palette.white)
         .attr("stroke-width", lineSize)
         .attr("d", line);
       // Criação dos pontos inicial e final da linha
@@ -133,7 +143,7 @@ const NeuraChart: React.FC<propsInterface> = ({
         .attr("cx", (d) => xScale(d.x))
         .attr("cy", (d) => yScale(d.y))
         .attr("r", dotSize)
-        .attr("fill", "#FFFFFF");
+        .attr("fill", palette.white);
 
       // Criação dos pontos vermelhos
       svg
