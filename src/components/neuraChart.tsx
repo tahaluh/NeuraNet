@@ -4,10 +4,6 @@ import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 import generateIntermediatePoints from "../utils/generateIntermediatePoints";
 
-interface coordinates {
-  x: number;
-  y: number;
-}
 interface propsInterface {
   width: number;
   height: number;
@@ -21,9 +17,9 @@ interface propsInterface {
   xRange?: number;
   yRange?: number;
 
-  blueStrokeData?: coordinates[];
-  redStrokeData?: coordinates[];
-  lineStrokeData?: coordinates[];
+  blueStrokeData?: Coordinates[];
+  redStrokeData?: Coordinates[];
+  lineStrokeData?: Coordinates[];
 }
 
 const NeuraChart: React.FC<propsInterface> = ({

@@ -1,7 +1,16 @@
 import Image from "next/image";
 import NeuraChart from "../components/neuraChart";
+import generatePointsByLine from "../utils/generatePointsByLine";
 
 export default function Home() {
+  const { pointsLeft, pointsRight } = generatePointsByLine(
+    80,
+    { x: 0, y: 10 },
+    { x: 7, y: 0 },
+    0.4,
+    0.5
+  );
+
   return (
     <main className="flex flex-row flex-wrap items-start justify-center h-screen">
       {/* Título Centralizado */}
@@ -19,6 +28,9 @@ export default function Home() {
             xAxisGrids={14}
             yAxisGrids={10}
             centerAxis={false}
+            blueStrokeData={pointsLeft}
+            redStrokeData={pointsRight}
+            dotSize={8}
           />
         </div>
 
