@@ -1,3 +1,5 @@
+import { Coordinates } from "../types/types";
+
 export default function generatePointsByLine(
   n: number,
   linePoint1: Coordinates,

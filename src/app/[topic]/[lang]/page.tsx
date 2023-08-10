@@ -5,22 +5,23 @@ import FormattedParagraphs from "@/src/components/formattedParagraphs";
 import { Locale } from "@/src/types/types";
 
 function isValidTopic(topic: any): topic is keyof Locale {
-  return (Object.keys(localesMap["pt-br"]) as (keyof Locale)[]).includes(topic);
+  return (
+    (Object.keys(localesMap["pt-br"]) as (keyof Locale)[]).includes(topic) &&
+    topic != "home"
+  );
 }
 
 function isValidlang(lang: any): lang is keyof typeof localesMap {
   return lang in localesMap;
 }
 
-export default function Home({
-  params,
-}: {
-  params: { topic: string; lang: string[] };
+export default function Home(props: {
+  params: { topic: string; lang: string };
 }) {
-  console.log();
-  const topic = isValidTopic(params.topic) ? params.topic : "decisionBoundary";
-  const lang =
-    params.lang && isValidlang(params.lang[0]) ? params.lang[0] : "pt-br";
+  const topic = isValidTopic(props.params.topic)
+    ? props.params.topic
+    : "decisionBoundary";
+  const lang = isValidlang(props.params.lang) ? props.params.lang : "pt-br";
 
   const localeData = localesMap[lang];
 
@@ -67,3 +68,27 @@ export default function Home({
     </main>
   );
 }
+/* {
+  params: { category },
+}: {
+  params: { category: string }
+})
+*/
+
+export const generateStaticParams = ({
+  params,
+}: {
+  params: { topic: string };
+}) => {
+  const langs = Object.keys(localesMap);
+  /* const topic = params.topic;
+
+  const combinations = [];
+  for (const lang of langs) {
+    combinations.push({ lang, topic });
+  } */
+
+  return langs.map((lang) => {
+    return { lang: lang };
+  });
+};
