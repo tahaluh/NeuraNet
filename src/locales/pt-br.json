@@ -9,7 +9,7 @@
     "content": {
       "page1": [
         "O \"Decision Boundary\" (Fronteira de Decisão) é um conceito crucial em redes neurais. Ele representa uma linha ou limite que separa diferentes grupos de dados em um gráfico.",
-        "Por exemplo, no gráfico com pontos azuis e vermelhos, o \"Decision Boundary\" é a linha branca que divide esses pontos em grupos distintos. ",
+        "Por exemplo, no gráfico com pontos &blue(azuis)& e &red(vermelhos)&, o \"Decision Boundary\" é a linha branca que divide esses pontos em grupos distintos. ",
         "Essa fronteira é essencial para que o modelo de rede neural possa fazer decisões precisas e classificar corretamente os pontos de dados em suas respectivas categorias."
       ]
     }
