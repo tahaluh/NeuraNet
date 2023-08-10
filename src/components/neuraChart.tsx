@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import generateIntermediatePoints from "../utils/generateIntermediatePoints";
 
 interface coordinates {
   x: number;
@@ -35,8 +36,8 @@ const NeuraChart: React.FC<propsInterface> = ({
   yAxisGrids = 10,
   xAxisGrids = 10,
 
-  xRange = 6,
-  yRange = 1,
+  xRange = 10,
+  yRange = 10,
 
   blueStrokeData = [],
   redStrokeData = [],
@@ -59,9 +60,10 @@ const NeuraChart: React.FC<propsInterface> = ({
         .scaleLinear()
         .domain([xMin, xMax])
         .range([
-          width / yAxisGrids / 1.5,
-          (width / yAxisGrids) * (yAxisGrids - 0.66),
+          width / (xAxisGrids + 1) / 2,
+          width - width / (xAxisGrids + 1) / 2,
         ]);
+
       const yScale = d3
         .scaleLinear()
         .domain([yMin, yMax])
@@ -69,12 +71,12 @@ const NeuraChart: React.FC<propsInterface> = ({
           (height / xAxisGrids) * (xAxisGrids - 0.66),
           height / xAxisGrids / 1.5,
         ]);
-      console.log(xScale);
 
       // Criação do grid vertical
+      const customXTicks = generateIntermediatePoints(xMin, xMax, xAxisGrids);
       const xAxis = d3
         .axisBottom(xScale)
-        .ticks(xAxisGrids)
+        .tickValues(customXTicks)
         .tickSize(height)
         .tickFormat(() => "");
       const xAxisGroup = svg
@@ -85,9 +87,11 @@ const NeuraChart: React.FC<propsInterface> = ({
         .call((g) => g.selectAll(".tick line").attr("stroke", "#342F34"))!;
 
       // Criação do grid horizontal
+
+      const customYTicks = generateIntermediatePoints(yMin, yMax, yAxisGrids);
       const yAxis = d3
         .axisLeft(yScale)
-        .ticks(yAxisGrids)
+        .tickValues(customYTicks)
         .tickSize(-width)
         .tickFormat(() => "");
       const yAxisGroup = svg
