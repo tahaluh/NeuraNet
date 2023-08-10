@@ -1,4 +1,3 @@
-import Image from "next/image";
 import NeuraChart from "../../../components/neuraChart";
 import generatePointsByLine from "../../../utils/generatePointsByLine";
 import localesMap from "@/src/locales/localesMap";
@@ -6,8 +5,9 @@ import FormattedParagraphs from "@/src/components/formattedParagraphs";
 import { Locale } from "@/src/types/types";
 
 function isValidTopic(topic: any): topic is keyof Locale {
-  return (Object.keys(localesMap) as (keyof Locale)[]).includes(topic);
+  return (Object.keys(localesMap["pt-br"]) as (keyof Locale)[]).includes(topic);
 }
+
 function isValidlang(lang: any): lang is keyof typeof localesMap {
   return lang in localesMap;
 }
@@ -17,8 +17,10 @@ export default function Home({
 }: {
   params: { topic: string; lang: string[] };
 }) {
-  const topic = isValidTopic(params.topic) ? params.topic : "home";
-  const lang = isValidlang(params.lang[0]) ? params.lang[0] : "pt-br";
+  console.log();
+  const topic = isValidTopic(params.topic) ? params.topic : "decisionBoundary";
+  const lang =
+    params.lang && isValidlang(params.lang[0]) ? params.lang[0] : "pt-br";
 
   const localeData = localesMap[lang];
 
@@ -34,7 +36,7 @@ export default function Home({
     <main className="flex flex-row flex-wrap items-start justify-center h-screen">
       {/* Título Centralizado */}
       <h1 className="text-3xl font-bold mb-2 mt-8 w-screen text-center Montserrat">
-        {localeData.decisionBoundary.title}
+        {localeData[topic].title}
       </h1>
 
       {/* Layout Desktop */}
@@ -59,9 +61,7 @@ export default function Home({
 
         {/* Bloco de Texto à Direita */}
         <div className="w-2/6">
-          <FormattedParagraphs
-            texts={localeData.decisionBoundary.content.page1}
-          />
+          <FormattedParagraphs texts={localeData[topic].content.page1} />
         </div>
       </div>
     </main>

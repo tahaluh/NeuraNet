@@ -4,11 +4,11 @@ export interface Coordinates {
 }
 
 export interface Locale {
-  home: {
+  /* home: {
     welcomeMessage: string;
     about: string;
     contact: string;
-  };
+  }; */
   decisionBoundary: {
     title: string;
     content: {
