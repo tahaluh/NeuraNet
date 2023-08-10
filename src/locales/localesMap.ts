@@ -1,7 +1,7 @@
-// locales/localesMap.ts
+import { Locale } from "../types/types";
 import ptBrLocale from "./pt-br.json";
 
-const localesMap: Record<string, any> = {
+const localesMap: Record<string, Locale> = {
   "pt-br": ptBrLocale,
 };
 

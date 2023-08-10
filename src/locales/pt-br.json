@@ -42,7 +42,7 @@
     }
   },
   "hiddenLayers": {
-    "ttile": "Hidden Layers (Camadas ocultas)",
+    "title": "Hidden Layers (Camadas ocultas)",
     "content": {
       "page1": [
         "As \"hidden layers\" são componentes centrais das redes neurais, operando em um espaço intermediário entre as camadas de entrada e saída. Sua função é extrair e aprender características complexas dos dados, permitindo que a rede aprenda representações hierárquicas dos mesmos. ",
@@ -56,7 +56,7 @@
     }
   },
   "activationFunction": {
-    "tittle": "Activation Functions (Funções de ativação)",
+    "title": "Activation Functions (Funções de ativação)",
     "content": {
       "page1": [
         "\"Activation Functions\" são funções matemáticas aplicadas aos neurônios das camadas ocultas de uma rede neural. Elas introduzem não linearidade no modelo, permitindo que a rede aprenda e represente relações complexas e não lineares nos dados.",
