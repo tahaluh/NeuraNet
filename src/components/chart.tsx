@@ -3,6 +3,10 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
+interface coordinates {
+  x: number;
+  y: number;
+}
 interface propsInterface {
   width: number;
   height: number;
@@ -15,6 +19,10 @@ interface propsInterface {
 
   xRange?: number;
   yRange?: number;
+
+  blueStrokeData?: coordinates[];
+  redStrokeData?: coordinates[];
+  lineStrokeData?: coordinates[];
 }
 
 const MyChart: React.FC<propsInterface> = ({
@@ -29,28 +37,16 @@ const MyChart: React.FC<propsInterface> = ({
 
   xRange = 6,
   yRange = 1,
+
+  blueStrokeData = [],
+  redStrokeData = [],
+  lineStrokeData = [],
 }) => {
   const chartRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     // Função para criar e atualizar o gráfico
     const drawChart = () => {
-      const data = [
-        { x: -6, y: 0.0025 },
-        { x: -5, y: 0.0067 },
-        { x: -4, y: 0.0179 },
-        { x: -3, y: 0.0474 },
-        { x: -2, y: 0.1192 },
-        { x: -1, y: 0.2689 },
-        { x: 0, y: 0.5 },
-        { x: 1, y: 0.7311 },
-        { x: 2, y: 0.8808 },
-        { x: 3, y: 0.9526 },
-        { x: 4, y: 0.9821 },
-        { x: 5, y: 0.9933 },
-        { x: 6, y: 0.9975 },
-      ];
-
       const svg = d3.select(chartRef.current);
 
       // Escala linear para os eixos X e Y
@@ -113,7 +109,7 @@ const MyChart: React.FC<propsInterface> = ({
       ];
       d3.select(yAxisLine).attr("stroke", "#4D4B4D").attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
 
-      // Criação da linha sigmoid
+      // Criação da linha
       const line = d3
         .line<{ x: number; y: number }>()
         .x((d) => xScale(d.x))
@@ -122,7 +118,7 @@ const MyChart: React.FC<propsInterface> = ({
 
       svg
         .append("path")
-        .datum(data)
+        .datum(lineStrokeData)
         .attr("fill", "none")
         .attr("stroke", "#FFFFFF")
         .attr("stroke-width", lineSize)
@@ -131,7 +127,7 @@ const MyChart: React.FC<propsInterface> = ({
       // Criação dos pontos vermelhos
       svg
         .selectAll("circle.red")
-        .data(data.filter((d) => d.y < 0.5))
+        .data(redStrokeData)
         .enter()
         .append("circle")
         .attr("class", "red")
@@ -143,7 +139,7 @@ const MyChart: React.FC<propsInterface> = ({
       // Criação dos pontos azuis
       svg
         .selectAll("circle.blue")
-        .data(data.filter((d) => d.y >= 0.5))
+        .data(blueStrokeData)
         .enter()
         .append("circle")
         .attr("class", "blue")
