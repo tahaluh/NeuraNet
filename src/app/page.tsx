@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Chart from "../components/chart";
+import NeuraChart from "../components/neuraChart";
 
 export default function Home() {
   return (
     <main className="flex items-center justify-center h-screen text-red-500">
-      <Chart
+      <NeuraChart
         height={500}
         width={500}
         xAxisGrids={10}

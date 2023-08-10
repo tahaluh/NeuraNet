@@ -25,7 +25,7 @@ interface propsInterface {
   lineStrokeData?: coordinates[];
 }
 
-const MyChart: React.FC<propsInterface> = ({
+const NeuraChart: React.FC<propsInterface> = ({
   width,
   height,
   dotSize = 6,
@@ -155,4 +155,4 @@ const MyChart: React.FC<propsInterface> = ({
   return <svg ref={chartRef} width={width} height={height} />;
 };
 
-export default MyChart;
+export default NeuraChart;
