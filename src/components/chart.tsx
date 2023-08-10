@@ -12,6 +12,9 @@ interface propsInterface {
 
   yAxisGrids?: number;
   xAxisGrids?: number;
+
+  xRange?: number;
+  yRange?: number;
 }
 
 const MyChart: React.FC<propsInterface> = ({
@@ -19,10 +22,13 @@ const MyChart: React.FC<propsInterface> = ({
   height,
   dotSize = 6,
   lineSize = 1,
-  centerAxis = false,
+  centerAxis = true,
 
   yAxisGrids = 10,
   xAxisGrids = 10,
+
+  xRange = 6,
+  yRange = 1,
 }) => {
   const chartRef = useRef<SVGSVGElement>(null);
 
@@ -48,24 +54,24 @@ const MyChart: React.FC<propsInterface> = ({
       const svg = d3.select(chartRef.current);
 
       // Escala linear para os eixos X e Y
-      const xMin = -6;
-      const xMax = 6;
-      const yMin = 0;
-      const yMax = 1;
+      const xMin = centerAxis ? -xRange : 0;
+      const xMax = xRange;
+      const yMin = centerAxis ? -yRange : 0;
+      const yMax = yRange;
 
       const xScale = d3
         .scaleLinear()
         .domain([xMin, xMax])
         .range([
-          width / (xAxisGrids * 2),
-          (width / yAxisGrids) * (yAxisGrids - 1),
+          width / yAxisGrids / 1.5,
+          (width / yAxisGrids) * (yAxisGrids - 0.66),
         ]);
       const yScale = d3
         .scaleLinear()
         .domain([yMin, yMax])
         .range([
-          (height / xAxisGrids) * (xAxisGrids - 1),
-          height / (yAxisGrids * 2),
+          (height / xAxisGrids) * (xAxisGrids - 0.66),
+          height / xAxisGrids / 1.5,
         ]);
       console.log(xScale);
 
@@ -73,7 +79,7 @@ const MyChart: React.FC<propsInterface> = ({
       const xAxis = d3
         .axisBottom(xScale)
         .ticks(xAxisGrids)
-        .tickSize(height * 0.95)
+        .tickSize(height)
         .tickFormat(() => "");
       const xAxisGroup = svg
         .append("g")
@@ -86,7 +92,7 @@ const MyChart: React.FC<propsInterface> = ({
       const yAxis = d3
         .axisLeft(yScale)
         .ticks(yAxisGrids)
-        .tickSize(-width * 0.95)
+        .tickSize(-width)
         .tickFormat(() => "");
       const yAxisGroup = svg
         .append("g")
@@ -96,11 +102,15 @@ const MyChart: React.FC<propsInterface> = ({
         .call((g) => g.selectAll(".tick line").attr("stroke", "#342F34"));
 
       // Seleciona a linha do meio no eixo x
-      const xAxisLine = xAxisGroup.selectAll("line").nodes()[6]!;
+      const xAxisLine = xAxisGroup.selectAll("line").nodes()[
+        centerAxis ? (xAxisGroup.selectAll("line").nodes().length - 1) / 2 : 0
+      ]!;
       d3.select(xAxisLine).attr("stroke", "#4D4B4D").attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
 
       // Seleciona a linha do meio no eixo y
-      const yAxisLine = yAxisGroup.selectAll("line").nodes()[5];
+      const yAxisLine = yAxisGroup.selectAll("line").nodes()[
+        centerAxis ? (yAxisGroup.selectAll("line").nodes().length - 1) / 2 : 0
+      ];
       d3.select(yAxisLine).attr("stroke", "#4D4B4D").attr("stroke-width", 2); // Define a espessura da linha do meio; // Define a cor branca para a linha do meio
 
       // Criação da linha sigmoid
