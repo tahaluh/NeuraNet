@@ -1,10 +1,27 @@
 import Image from "next/image";
-import NeuraChart from "../../components/neuraChart";
-import generatePointsByLine from "../../utils/generatePointsByLine";
+import NeuraChart from "../../../components/neuraChart";
+import generatePointsByLine from "../../../utils/generatePointsByLine";
 import localesMap from "@/src/locales/localesMap";
 import FormattedParagraphs from "@/src/components/formattedParagraphs";
+import { Locale } from "@/src/types/types";
 
-export default function Home({ params }: { params: { lang: string } }) {
+function isValidTopic(topic: any): topic is keyof Locale {
+  return (Object.keys(localesMap) as (keyof Locale)[]).includes(topic);
+}
+function isValidlang(lang: any): lang is keyof typeof localesMap {
+  return lang in localesMap;
+}
+
+export default function Home({
+  params,
+}: {
+  params: { topic: string; lang: string[] };
+}) {
+  const topic = isValidTopic(params.topic) ? params.topic : "home";
+  const lang = isValidlang(params.lang[0]) ? params.lang[0] : "pt-br";
+
+  const localeData = localesMap[lang];
+
   const { pointsLeft, pointsRight } = generatePointsByLine(
     80,
     { x: 0, y: 10 },
@@ -12,8 +29,6 @@ export default function Home({ params }: { params: { lang: string } }) {
     0.4,
     0.5
   );
-
-  const localeData = localesMap[params.lang] || localesMap["pt-br"];
 
   return (
     <main className="flex flex-row flex-wrap items-start justify-center h-screen">
