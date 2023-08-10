@@ -25,3 +25,19 @@ body {
   color: var(--color-text);
   background: var(--color-background);
 }
+
+.RobotoMono {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.Montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.NeuraRed {
+  color: var(--color-red);
+}
+
+.NeuraBlue {
+  color: var(--color-blue);
+}

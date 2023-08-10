@@ -3,45 +3,45 @@ import NeuraChart from "../components/neuraChart";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center h-screen text-red-500">
-      <NeuraChart
-        height={500}
-        width={500}
-        xAxisGrids={10}
-        yAxisGrids={10}
-        blueStrokeData={[
-          { x: -6, y: 0.0025 },
-          { x: -5, y: 0.0067 },
-          { x: -4, y: 0.0179 },
-          { x: -3, y: 0.0474 },
-          { x: -2, y: 0.1192 },
-          { x: -1, y: 0.2689 },
-        ]}
-        redStrokeData={[
-          { x: 0, y: 0.5 },
-          { x: 1, y: 0.7311 },
-          { x: 2, y: 0.8808 },
-          { x: 3, y: 0.9526 },
-          { x: 4, y: 0.9821 },
-          { x: 5, y: 0.9933 },
-          { x: 6, y: 0.9975 },
-        ]}
-        lineStrokeData={[
-          { x: -6, y: 0.0025 },
-          { x: -5, y: 0.0067 },
-          { x: -4, y: 0.0179 },
-          { x: -3, y: 0.0474 },
-          { x: -2, y: 0.1192 },
-          { x: -1, y: 0.2689 },
-          { x: 0, y: 0.5 },
-          { x: 1, y: 0.7311 },
-          { x: 2, y: 0.8808 },
-          { x: 3, y: 0.9526 },
-          { x: 4, y: 0.9821 },
-          { x: 5, y: 0.9933 },
-          { x: 6, y: 0.9975 },
-        ]}
-      />
+    <main className="flex flex-row flex-wrap items-start justify-center h-screen">
+      {/* Título Centralizado */}
+      <h1 className="text-3xl font-bold mb-2 mt-8 w-screen text-center Montserrat">
+        1. Decision Boundary (Fronteira de decisão)
+      </h1>
+
+      {/* Layout Desktop */}
+      <div className="flex flex-row items-start justify-around space-x-4">
+        {/* Chart na Esquerda */}
+        <div className="">
+          <NeuraChart
+            height={400}
+            width={550}
+            xAxisGrids={14}
+            yAxisGrids={10}
+            centerAxis={false}
+          />
+        </div>
+
+        {/* Bloco de Texto à Direita */}
+        <div className="w-2/6">
+          <p className="text-md RobotoMono mb-4 ml-2">
+            O "Decision Boundary" (Fronteira de Decisão) é um conceito crucial
+            em redes neurais. Ele representa uma linha ou limite que separa
+            diferentes grupos de dados em um gráfico.
+          </p>
+          <p className="text-lg RobotoMono mb-4 ml-2">
+            Por exemplo, no gráfico com pontos{" "}
+            <span className="NeuraBlue">azuis</span> e{" "}
+            <span className="NeuraRed">vermelhos</span>, o "Decision Boundary" é
+            a linha branca que divide esses pontos em grupos.
+          </p>
+          <p className="text-lg RobotoMono ml-2">
+            Essa fronteira é essencial para que o modelo de rede neural possa
+            fazer decisões precisas e classificar corretamente os pontos de
+            dados em suas respectivas categorias.
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
