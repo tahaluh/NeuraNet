@@ -30,6 +30,10 @@ export default function Home() {
             centerAxis={false}
             blueStrokeData={pointsLeft}
             redStrokeData={pointsRight}
+            lineStrokeData={[
+              { x: 0, y: 10 },
+              { x: 7, y: 0 },
+            ]}
             dotSize={8}
           />
         </div>

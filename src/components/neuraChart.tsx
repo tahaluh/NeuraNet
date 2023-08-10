@@ -123,6 +123,17 @@ const NeuraChart: React.FC<propsInterface> = ({
         .attr("stroke", "#FFFFFF")
         .attr("stroke-width", lineSize)
         .attr("d", line);
+      // Criação dos pontos inicial e final da linha
+      svg
+        .selectAll("circle.white")
+        .data([lineStrokeData[0], lineStrokeData[lineStrokeData.length - 1]])
+        .enter()
+        .append("circle")
+        .attr("class", "white")
+        .attr("cx", (d) => xScale(d.x))
+        .attr("cy", (d) => yScale(d.y))
+        .attr("r", dotSize)
+        .attr("fill", "#FFFFFF");
 
       // Criação dos pontos vermelhos
       svg
