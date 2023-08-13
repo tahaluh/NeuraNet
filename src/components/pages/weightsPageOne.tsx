@@ -1,12 +1,12 @@
 import Image from "next/image";
-import InOutNeurons from "../../public/InOutNeurons.svg";
+import InOutNeurons from "../../../public/InOutNeurons.svg";
 
-import generatePointsByLine from "../utils/generatePointsByLine";
+import generatePointsByLine from "../../utils/generatePointsByLine";
 import FormattedParagraphs from "@/src/components/formattedParagraphs";
-import { Locale } from "../types/types";
-import PreviousButton from "../components/previousButton";
-import NextButton from "../components/nextButton";
-import SliderGroup from "../components/sliderGroup";
+import { Locale } from "../../types/types";
+import PreviousButton from "../previousButton";
+import NextButton from "../nextButton";
+import SliderGroup from "../sliderGroup";
 
 interface propsInterface {
   locale: Locale;
@@ -56,7 +56,7 @@ export default function WeightsPageOne({ locale }: propsInterface) {
               </span>
             </p>
           </div>
-          <div className="w-12/12">
+          <div className="full">
             <SliderGroup neuronCounts={[2, 2]}></SliderGroup>
           </div>
         </div>

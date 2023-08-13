@@ -1,8 +1,8 @@
 import localesMap from "@/src/locales/localesMap";
 import { Locale } from "@/src/types/types";
 
-import DecisionBoundaryPage from "@/src/pages/decisionBoundaryPage";
-import WeightsPageOne from "@/src/pages/weightsPageOne";
+import DecisionBoundaryPage from "@/src/components/pages/decisionBoundaryPage";
+import WeightsPageOne from "@/src/components/pages/weightsPageOne";
 
 function isValidTopic(topic: any): topic is keyof Locale {
   return (Object.keys(localesMap["pt-br"]) as (keyof Locale)[]).includes(topic);

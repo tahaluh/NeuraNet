@@ -1,9 +1,9 @@
-import NeuraChart from "../components/neuraChart";
-import generatePointsByLine from "../utils/generatePointsByLine";
+import NeuraChart from "../neuraChart";
+import generatePointsByLine from "../../utils/generatePointsByLine";
 import FormattedParagraphs from "@/src/components/formattedParagraphs";
-import { Locale } from "../types/types";
-import PreviousButton from "../components/previousButton";
-import NextButton from "../components/nextButton";
+import { Locale } from "../../types/types";
+import PreviousButton from "../previousButton";
+import NextButton from "../nextButton";
 
 interface propsInterface {
   locale: Locale;
