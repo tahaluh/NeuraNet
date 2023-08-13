@@ -20,7 +20,7 @@
       "page1": [
         "Os pesos de ligação entre um input e um output em uma rede neural são cruciais, pois controlam a importância das conexões na propagação dos dados e cálculo da saída. ",
         "Durante o treinamento, esses pesos são ajustados para que a rede possa aprender a realizar tarefas específicas com maior precisão e eficácia. Eles determinam o quão relevante é a informação passada por um determinado neurônio para a classificação final. ",
-        "No gráfico ao lado, por exemplo, o valor recebido pelo neurônio \"output1\" determina a probabilidade de um ponto ser classificado como azul, enquanto o valor recebido pelo \"output2\" determina a probabilidade de ser vermelho."
+        "No gráfico ao lado, por exemplo, o valor recebido pelo neurônio \"output1\" determina a probabilidade de um ponto ser classificado como &blue(azul)&, enquanto o valor recebido pelo \"output2\" determina a probabilidade de ser &red(vermelho)&."
       ],
       "page2": [
         "O ajuste dos pesos permite definir de forma mais clara os limites da fronteira de decisão. Os valores de cada peso afetam diretamente a posição e a forma dessa fronteira, influenciando a capacidade da rede neural em separar diferentes classes de dados de maneira mais precisa e discriminativa.",
@@ -68,10 +68,10 @@
         "Graças à função sigmoid escolhida, esse processo se torna mais suave, permitindo que a rede aprenda e represente relações complexas nos dados de forma mais eficaz."
       ]
     }
-  },"utils": {
+  },
+  "utils": {
     "lang": "pt-br",
     "next": "Continuar",
     "previous": "Voltar"
   }
-  
 }

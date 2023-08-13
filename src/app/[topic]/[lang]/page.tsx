@@ -1,8 +1,8 @@
 import localesMap from "@/src/locales/localesMap";
 import { Locale } from "@/src/types/types";
 
-import DecisionBoundaryPageOne from "@/src/pages/decisionBoundaryPageOne";
-import OutlinedButton from "@/src/components/outlinedButton";
+import DecisionBoundaryPage from "@/src/pages/decisionBoundaryPage";
+import WeightsPageOne from "@/src/pages/weightsPageOne";
 
 function isValidTopic(topic: any): topic is keyof Locale {
   return (Object.keys(localesMap["pt-br"]) as (keyof Locale)[]).includes(topic);
@@ -17,9 +17,9 @@ function switchPage(topic: string, locale: Locale, lang: string) {
     case "home":
       return <h1>home</h1>;
     case "decisionBoundary":
-      return <DecisionBoundaryPageOne locale={locale} />;
-    case "hiddenLayers":
-      return <h1>uepa</h1>;
+      return <DecisionBoundaryPage locale={locale} />;
+    case "weights":
+      return <WeightsPageOne locale={locale} />;
   }
 }
 

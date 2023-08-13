@@ -27,11 +27,15 @@ body {
 }
 
 .RobotoMono {
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .Montserrat {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+}
+
+.White {
+  color: var(--color-white);
 }
 
 .NeuraRed {
@@ -40,4 +44,9 @@ body {
 
 .NeuraBlue {
   color: var(--color-blue);
+}
+
+.custom-slider {
+  --tw-bg-opacity: 1;
+  background-color: var(--color-gray-medium);
 }

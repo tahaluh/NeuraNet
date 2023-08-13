@@ -20,7 +20,7 @@
       "page1": [
         "The connection weights between an input and an output in a neural network are crucial, as they control the importance of connections in data propagation and output calculation.",
         "During training, these weights are adjusted so that the network can learn to perform specific tasks with greater accuracy and effectiveness. They determine how relevant the information passed by a particular neuron is for the final classification.",
-        "In the adjacent graph, for instance, the value received by the \"output1\" neuron determines the probability of a point being classified as blue, while the value received by \"output2\" determines the probability of it being red."
+        "In the adjacent graph, for instance, the value received by the \"output1\" neuron determines the probability of a point being classified as &blue(blue)&, while the value received by \"output2\" determines the probability of it being &red(red)&."
       ],
       "page2": [
         "Adjusting the weights allows for a clearer definition of the decision boundary. The values of each weight directly impact the position and shape of this boundary, influencing the neural network's ability to separate different data classes more precisely and discriminatively.",
