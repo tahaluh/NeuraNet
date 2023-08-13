@@ -1,0 +1,72 @@
+{
+  "home": {
+    "welcomeMessage": "Bienvenue sur NeuraNet !",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "decisionBoundary": {
+    "title": "Frontière de décision",
+    "content": {
+      "page1": [
+        "La \"Frontière de décision\" est un concept crucial dans les réseaux neuronaux. Elle représente une ligne ou une limite qui sépare différents groupes de données dans un graphique.",
+        "Par exemple, sur le graphique avec des points &blue(bleus)& et &red(rouges)&, la \"Frontière de décision\" est la ligne blanche qui divise ces points en groupes distincts.",
+        "Cette frontière est essentielle pour que le modèle de réseau neuronal puisse prendre des décisions précises et classer correctement les points de données dans leurs catégories respectives."
+      ]
+    }
+  },
+  "weights": {
+    "title": "Poids",
+    "content": {
+      "page1": [
+        "Les poids de liaison entre une entrée et une sortie dans un réseau neuronal sont cruciaux, car ils contrôlent l'importance des connexions dans la propagation des données et le calcul de la sortie.",
+        "Pendant l'entraînement, ces poids sont ajustés pour que le réseau puisse apprendre à effectuer des tâches spécifiques avec plus de précision et d'efficacité. Ils déterminent la pertinence des informations transmises par un neurone particulier pour la classification finale.",
+        "Sur le graphique adjacent, par exemple, la valeur reçue par le neurone \"output1\" détermine la probabilité qu'un point soit classé en bleu, tandis que la valeur reçue par \"output2\" détermine la probabilité qu'il soit classé en rouge."
+      ],
+      "page2": [
+        "Ajuster les poids permet de définir de manière plus claire la frontière de décision. Les valeurs de chaque poids impactent directement la position et la forme de cette frontière, influençant la capacité du réseau neuronal à séparer différentes classes de données de manière plus précise et discriminante.",
+        "Ajustez les poids pour que les points soient correctement classés."
+      ]
+    }
+  },
+  "bias": {
+    "title": "Biais",
+    "content": {
+      "page1": [
+        "Le \"biais\" dans un réseau neuronal est une valeur additionnelle dans un neurone, en plus des poids de liaison. Il permet au neurone d'ajuster son point de départ avant d'appliquer la fonction d'activation, contrôlant le niveau d'activation du neurone.",
+        "La principale fonction du \"biais\" est de permettre au réseau neuronal de mieux s'adapter aux données d'entraînement, notamment dans les scénarios non linéaires. Par exemple, lorsque les données ne peuvent pas être séparées par une ligne droite, la frontière de décision nécessaire sera également non linéaire. Le \"biais\" permet cet ajustement en déplaçant verticalement la frontière de décision, pour que le réseau puisse classifier correctement les données."
+      ],
+      "page2": [
+        "En ajoutant le \"biais\" à la formule de calcul de la sortie, le réseau neuronal gagne en flexibilité et en capacité à s'adapter aux données. Cela permet de capturer des relations complexes dans les données et d'améliorer la précision de la classification. Le \"biais\" permet de créer des frontières de décision plus précises et discriminantes, rendant le réseau plus adaptable au processus d'apprentissage.",
+        "Ajustez les valeurs des poids et du biais pour que les points soient correctement classés."
+      ]
+    }
+  },
+  "hiddenLayers": {
+    "title": "Couches cachées",
+    "content": {
+      "page1": [
+        "Les \"couches cachées\" sont des composants essentiels des réseaux neuronaux, opérant dans un espace intermédiaire entre les couches d'entrée et de sortie. Leur fonction est d'extraire et d'apprendre des caractéristiques complexes des données, permettant au réseau d'apprendre des représentations hiérarchiques de celles-ci.",
+        "Plus il y a de \"couches cachées\", plus le réseau est capable d'apprendre et de représenter des caractéristiques complexes, bien que cela puisse présenter des défis d'entraînement."
+      ],
+      "page2": [
+        "Les \"couches cachées\" permettent de classer les relations non linéaires dans les données. Cependant, augmenter le nombre de \"couches cachées\" peut rendre l'ajustement des poids plus difficile. Trouver le bon équilibre entre la quantité de couches et la taille du réseau est essentiel pour obtenir des résultats précis dans les tâches de apprentissage automatique complexes.",
+        "Sur le graphique adjacent, on peut noter un nombre élevé de poids à configurer. Le processus d'ajustement de tant de poids peut être laborieux et prendre plus de temps d'entraînement. C'est pourquoi il est important de considérer attentivement la complexité du problème lors de la conception de l'architecture du réseau neuronal.",
+        "De plus, malgré l'augmentation du nombre de connexions et de neurones dans le réseau, la relation de classification reste linéaire. Ce problème peut être résolu avec des \"fonctions d'activation\", des fonctions non linéaires appliquées aux neurones dans les \"couches cachées\"."
+      ]
+    }
+  },
+  "activationFunction": {
+    "title": "Fonctions d'activation",
+    "content": {
+      "page1": [
+        "Les \"fonctions d'activation\" sont des fonctions mathématiques appliquées aux neurones des couches cachées d'un réseau neuronal. Elles introduisent de la non-linéarité dans le modèle, permettant au réseau d'apprendre et de représenter des relations complexes et non linéaires dans les données.",
+        "Ces fonctions sont essentielles pour libérer le pouvoir de l'apprentissage non linéaire des réseaux neuronaux, permettant de résoudre des problèmes plus complexes et d'obtenir des classifications plus précises dans les tâches d'apprentissage automatique.",
+        "À côté, vous trouverez certaines des fonctions d'activation les plus courantes pour les neurones des réseaux neuronaux. Chaque fonction a des caractéristiques spécifiques qui impactent les performances du réseau. Le choix de la fonction d'activation est essentiel pour le succès du réseau dans diverses applications d'apprentissage automatique, telles que la vision par ordinateur et le traitement du langage naturel."
+      ],
+      "page2": [
+        "Pour notre démonstration, nous utiliserons la fonction sigmoïde. Il est important de noter que, en ajustant les poids, il est possible d'observer la formation de courbes dans la frontière de décision, créant une classification non linéaire.",
+        "Grâce à la fonction sigmoïde choisie, ce processus devient plus fluide, permettant au réseau d'apprendre et de représenter des relations complexes dans les données de manière plus efficace."
+      ]
+    }
+  }
+}
