@@ -9,7 +9,7 @@
     "content": {
       "page1": [
         "El \"Límite de Decisión\" es un concepto crucial en las redes neuronales. Representa una línea o límite que separa diferentes grupos de datos en un gráfico.",
-        "Por ejemplo, en el gráfico con puntos &blue(&blue(azul)&es)& y &red(rojos)&, el \"Límite de Decisión\" es la línea blanca que divide estos puntos en grupos distintos.",
+        "Por ejemplo, en el gráfico con puntos &blue(azul)& y &red(rojos)&, el \"Límite de Decisión\" es la línea blanca que divide estos puntos en grupos distintos.",
         "Este límite es esencial para que el modelo de red neuronal tome decisiones precisas y clasifique correctamente los puntos de datos en sus respectivas categorías."
       ]
     }
@@ -20,7 +20,7 @@
       "page1": [
         "Los pesos de conexión entre una entrada y una salida en una red neuronal son cruciales, ya que controlan la importancia de las conexiones en la propagación de datos y el cálculo de la salida.",
         "Durante el entrenamiento, estos pesos se ajustan para que la red pueda aprender a realizar tareas específicas con mayor precisión y eficacia. Determinan cuán relevante es la información transmitida por un neurón en particular para la clasificación final.",
-        "En el gráfico adyacente, por ejemplo, el valor recibido por el neurón \"output1\" determina la probabilidad de que un punto se clasifique como &blue(azul)&, mientras que el valor recibido por \"output2\" determina la probabilidad de que se clasifique como rojo."
+        "En el gráfico adyacente, por ejemplo, el valor recibido por el neurón \"output1\" determina la probabilidad de que un punto se clasifique como &blue(azul)&, mientras que el valor recibido por \"output2\" determina la probabilidad de que se clasifique como &red(rojo)&."
       ],
       "page2": [
         "Ajustar los pesos permite definir de manera más clara el límite de decisión. Los valores de cada peso impactan directamente en la posición y forma de este límite, influyendo en la capacidad de la red neuronal para separar diferentes clases de datos de manera más precisa y discriminatoria.",

@@ -20,7 +20,7 @@
       "page1": [
         "Les poids de liaison entre une entrée et une sortie dans un réseau neuronal sont cruciaux, car ils contrôlent l'importance des connexions dans la propagation des données et le calcul de la sortie.",
         "Pendant l'entraînement, ces poids sont ajustés pour que le réseau puisse apprendre à effectuer des tâches spécifiques avec plus de précision et d'efficacité. Ils déterminent la pertinence des informations transmises par un neurone particulier pour la classification finale.",
-        "Sur le graphique adjacent, par exemple, la valeur reçue par le neurone \"output1\" détermine la probabilité qu'un point soit classé en bleu, tandis que la valeur reçue par \"output2\" détermine la probabilité qu'il soit classé en rouge."
+        "Sur le graphique adjacent, par exemple, la valeur reçue par le neurone \"output1\" détermine la probabilité qu'un point soit classé en &blue(bleus)&, tandis que la valeur reçue par \"output2\" détermine la probabilité qu'il soit classé en &red(rouge)&."
       ],
       "page2": [
         "Ajuster les poids permet de définir de manière plus claire la frontière de décision. Les valeurs de chaque poids impactent directement la position et la forme de cette frontière, influençant la capacité du réseau neuronal à séparer différentes classes de données de manière plus précise et discriminante.",
