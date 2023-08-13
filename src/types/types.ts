@@ -43,4 +43,5 @@ export interface Locale {
       page2: string[];
     };
   };
+  utils: { next: string; previous: string; lang: string };
 }

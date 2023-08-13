@@ -68,5 +68,10 @@
         "Gracias a la función sigmoide elegida, este proceso se vuelve más suave, permitiendo que la red aprenda y represente relaciones complejas en los datos de manera más efectiva."
       ]
     }
+  },"utils": {
+    "lang": "es-es",
+    "next": "Siguiente",
+    "previous": "Anterior"
   }
+  
 }

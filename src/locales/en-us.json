@@ -68,5 +68,10 @@
         "Thanks to the chosen sigmoid function, this process becomes smoother, enabling the network to learn and represent complex relationships in the data more effectively."
       ]
     }
+  },
+  "utils": {
+    "lang": "en-us",
+    "next": "Next",
+    "previous": "Previous"
   }
 }

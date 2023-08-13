@@ -1,13 +1,14 @@
 import NeuraChart from "../components/neuraChart";
 import generatePointsByLine from "../utils/generatePointsByLine";
-import localesMap from "@/src/locales/localesMap";
 import FormattedParagraphs from "@/src/components/formattedParagraphs";
+import { Locale } from "../types/types";
+import PreviousButton from "../components/previousButton";
+import NextButton from "../components/nextButton";
 
 interface propsInterface {
-  title: string;
-  text: string[];
+  locale: Locale;
 }
-export default function DecisionBoundaryPageOne({ title, text }: propsInterface) {
+export default function DecisionBoundaryPageOne({ locale }: propsInterface) {
   const { pointsLeft, pointsRight } = generatePointsByLine(
     80,
     { x: 0, y: 10 },
@@ -20,7 +21,7 @@ export default function DecisionBoundaryPageOne({ title, text }: propsInterface)
     <main className="flex flex-row flex-wrap items-start justify-center h-screen">
       {/* Título Centralizado */}
       <h1 className="text-3xl font-bold mb-2 mt-8 w-screen text-center Montserrat">
-        {title}
+        {locale.decisionBoundary.title}
       </h1>
 
       {/* Layout Desktop */}
@@ -45,7 +46,19 @@ export default function DecisionBoundaryPageOne({ title, text }: propsInterface)
 
         {/* Bloco de Texto à Direita */}
         <div className="w-2/6">
-          <FormattedParagraphs texts={text} />
+          <FormattedParagraphs texts={locale.decisionBoundary.content.page1} />
+          <div className="w-full flex flex-row items-start justify-between">
+            <PreviousButton
+              text={"Voltar"}
+              topic={"decisionBoundary"}
+              lang={locale.utils.lang}
+            />
+            <NextButton
+              text={"Continuar"}
+              topic={"decisionBoundary"}
+              lang={locale.utils.lang}
+            />
+          </div>
         </div>
       </div>
     </main>

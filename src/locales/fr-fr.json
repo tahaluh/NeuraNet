@@ -68,5 +68,10 @@
         "Grâce à la fonction sigmoïde choisie, ce processus devient plus fluide, permettant au réseau d'apprendre et de représenter des relations complexes dans les données de manière plus efficace."
       ]
     }
+  },
+  "utils": {
+    "lang": "fr-fr",
+    "next": "Suivant",
+    "previous": "Précédent"
   }
 }
