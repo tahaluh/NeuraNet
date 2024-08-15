@@ -1,29 +1,20 @@
 export default function calculateOutputValues(
+  neuronCounts: number[],
   weights: number[][][]
-): number[][] {
-  const outputValues: number[][] = [];
+): number[] {
+  const net: number[][] = neuronCounts.map((count, index) =>
+    Array(count).fill(index === 0 ? 1 : 0)
+  );
 
-  for (let layerIndex = 0; layerIndex < weights.length; layerIndex++) {
-    const layerNeurons: number[] = [];
-    for (
-      let neuronIndex = 0;
-      neuronIndex < weights[layerIndex].length;
-      neuronIndex++
-    ) {
-      let neuronValue = 0;
-      for (
-        let weightIndex = 0;
-        weightIndex < weights[layerIndex][neuronIndex].length;
-        weightIndex++
-      ) {
-        neuronValue +=
-          weights[layerIndex][neuronIndex][weightIndex] *
-          (layerIndex > 0 ? outputValues[layerIndex - 1][neuronIndex] : 1); // calcula o valor do neuronio, usando como entrada o valor da camada anterior ou 1 para a primeira camada
+  for (let i = 0; i < weights.length; i++) {
+    for (let j = 0; j < weights[i].length; j++) {
+      for (let k = 0; k < weights[i][j].length; k++) {
+        net[i + 1][k] += net[i][j] * weights[i][j][k];
       }
-      layerNeurons.push(neuronValue);
     }
-    outputValues.push(layerNeurons);
   }
 
-  return outputValues;
+  console.log(net);
+
+  return net[net.length - 1];
 }

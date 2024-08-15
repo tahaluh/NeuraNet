@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from "react";
 import Slider from "./slider";
 import calculateOutputValues from "../utils/calculateOutputValues";
 import PreviewOutputNeuron from "./previewOutputNeuron";
+import calculateMinMaxOutput from "../utils/calculateMinMaxOutput";
 
 interface LayeredSlidersProps {
   neuronCounts: number[];
@@ -14,7 +15,7 @@ export default function SliderGroup({ neuronCounts }: LayeredSlidersProps) {
     initializeWeightMatrix(neuronCounts)
   );
 
-  const [outputValues, setOutputValues] = useState<number[][]>([[0], [0]]);
+  const [outputValues, setOutputValues] = useState<number[]>([]);
 
   const handleSliderChange = (
     event: ChangeEvent<HTMLInputElement>,
@@ -23,33 +24,27 @@ export default function SliderGroup({ neuronCounts }: LayeredSlidersProps) {
     weightIndex: number
   ) => {
     const newValue = Number(event.target.value);
-    setWeightMatrix((prevMatrix) => {
-      const newMatrix = prevMatrix.map((row, rowIndex) =>
-        rowIndex === layerIndex
-          ? row.map((neuron, colIndex) =>
-              colIndex === neuronIndex
-                ? neuron.map((weight, wIndex) =>
-                    wIndex === weightIndex ? newValue : weight
-                  )
-                : neuron
-            )
-          : row
-      );
-      setOutputValues(calculateOutputValues(newMatrix));
-      return newMatrix;
+    setWeightMatrix((matrix) => {
+      matrix[layerIndex][neuronIndex][weightIndex] = newValue;
+      setOutputValues(calculateOutputValues(neuronCounts, matrix));
+      return matrix;
     });
   };
 
   function initializeWeightMatrix(counts: number[]): number[][][] {
     const matrix: number[][][] = [];
     for (let i = 0; i < counts.length - 1; i++) {
-      let layerWeights: number[][] = [];
+      const layer: number[][] = [];
       for (let j = 0; j < counts[i]; j++) {
-        const neuronWeights = Array(counts[i + 1]).fill(0);
-        layerWeights.push(neuronWeights);
+        const neuron: number[] = [];
+        for (let k = 0; k < counts[i + 1]; k++) {
+          neuron.push(0);
+        }
+        layer.push(neuron);
       }
-      matrix.push(layerWeights);
+      matrix.push(layer);
     }
+
     return matrix;
   }
 
@@ -86,10 +81,10 @@ export default function SliderGroup({ neuronCounts }: LayeredSlidersProps) {
       <div className="w-1/12 p-10 flex justify-center ml-10">
         <div className="flex flex-col items-center">
           <PreviewOutputNeuron
-            blueProbability={outputValues[outputValues.length - 1][0]}
-            redProbability={outputValues[outputValues.length - 1][1]}
-            minInput={-2}
-            maxInput={2}
+            blueProbability={outputValues[0]}
+            redProbability={outputValues[1]}
+            minInput={-calculateMinMaxOutput(neuronCounts)}
+            maxInput={calculateMinMaxOutput(neuronCounts)}
           />
           <label className="w-full text-white RobotoMono text-center pt-2">{`output`}</label>
         </div>
